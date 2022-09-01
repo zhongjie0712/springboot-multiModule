@@ -82,44 +82,26 @@
 <!--    <build>-->
 <!--        <plugins>-->
 <!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
 <!--                <configuration>-->
-<!--                    <target>${java.version}</target>-->
-<!--                    <source>${java.version}</source>-->
-<!--                    <encoding>UTF-8</encoding>-->
+<!--                    &lt;!&ndash; 指定该Main Class为全局的唯一入口 &ndash;&gt;-->
+<!--                    <mainClass>com.demo.web.WebApplication</mainClass>-->
+<!--                    <layout>ZIP</layout>-->
 <!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            &lt;!&ndash;可以把依赖的包都打包到生成的Jar包中&ndash;&gt;-->
+<!--                            <goal>repackage</goal>-->
+<!--                        </goals>-->
+<!--                        &lt;!&ndash;可以生成不含依赖包的不可执行Jar包&ndash;&gt;-->
+<!--                        &lt;!&ndash; configuration>-->
+<!--                          <classifier>exec</classifier>-->
+<!--                        </configuration> &ndash;&gt;-->
+<!--                    </execution>-->
+<!--                </executions>-->
 <!--            </plugin>-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-surefire-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <skipTests>true</skipTests>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-
-<!--            &lt;!&ndash;            </plugin>&ndash;&gt;-->
-<!--            &lt;!&ndash;            <plugin>&ndash;&gt;-->
-<!--            &lt;!&ndash;                <groupId>org.springframework.boot</groupId>&ndash;&gt;-->
-<!--            &lt;!&ndash;                <artifactId>spring-boot-maven-plugin</artifactId>&ndash;&gt;-->
-<!--            &lt;!&ndash;                <configuration>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    &lt;!&ndash; 指定该Main Class为全局的唯一入口 &ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                    <mainClass>com.demo.web.WebApplication</mainClass>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    <layout>ZIP</layout>&ndash;&gt;-->
-<!--            &lt;!&ndash;                </configuration>&ndash;&gt;-->
-<!--            &lt;!&ndash;                <executions>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    <execution>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        <goals>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            &lt;!&ndash;可以把依赖的包都打包到生成的Jar包中&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <goal>repackage</goal>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        </goals>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        &lt;!&ndash;可以生成不含依赖包的不可执行Jar包&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                        &lt;!&ndash; configuration>&ndash;&gt;-->
-<!--            &lt;!&ndash;                          <classifier>exec</classifier>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        </configuration> &ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                    </execution>&ndash;&gt;-->
-<!--            &lt;!&ndash;                </executions>&ndash;&gt;-->
-<!--            &lt;!&ndash;            </plugin>&ndash;&gt;-->
 <!--        </plugins>-->
 <!--    </build>-->
 </project>
