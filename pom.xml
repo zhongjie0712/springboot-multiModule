@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.zj</groupId>
+    <artifactId>multimodule</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>springboot-multiModule</name>
+    <description>springboot项目多模块</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>demo-dao</module>
+        <module>demo-web</module>
+        <module>demo-service</module>
+    </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.4</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <mysql.version>8.0.27</mysql.version>
+        <mp.version>3.5.1</mp.version>
+    </properties>
+
+    <dependencies>
+        <!--springframework-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <!--springframework-test-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!-- 此处使用dependencyManagement在顶级父依赖中进行声明，起到控制版本号的作用。
+         想要引入相关依赖必须要在子模块中再次声明，否则子模块中将不会引入当前依赖。
+         子模块中可以不用声明版本号，他会根据父依赖中的版本号自动的引入相应版本的依赖 -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.zj</groupId>
+                <artifactId>demo-web</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zj</groupId>
+                <artifactId>demo-dao</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zj</groupId>
+                <artifactId>demo-service</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <!--   mysql数据库     -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!--整合mybatis plus https://baomidou.com/-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mp.version}</version>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
+
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <target>${java.version}</target>-->
+<!--                    <source>${java.version}</source>-->
+<!--                    <encoding>UTF-8</encoding>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <skipTests>true</skipTests>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+
+<!--            &lt;!&ndash;            </plugin>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <plugin>&ndash;&gt;-->
+<!--            &lt;!&ndash;                <groupId>org.springframework.boot</groupId>&ndash;&gt;-->
+<!--            &lt;!&ndash;                <artifactId>spring-boot-maven-plugin</artifactId>&ndash;&gt;-->
+<!--            &lt;!&ndash;                <configuration>&ndash;&gt;-->
+<!--            &lt;!&ndash;                    &lt;!&ndash; 指定该Main Class为全局的唯一入口 &ndash;&gt;&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <mainClass>com.demo.web.WebApplication</mainClass>&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <layout>ZIP</layout>&ndash;&gt;-->
+<!--            &lt;!&ndash;                </configuration>&ndash;&gt;-->
+<!--            &lt;!&ndash;                <executions>&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <execution>&ndash;&gt;-->
+<!--            &lt;!&ndash;                        <goals>&ndash;&gt;-->
+<!--            &lt;!&ndash;                            &lt;!&ndash;可以把依赖的包都打包到生成的Jar包中&ndash;&gt;&ndash;&gt;-->
+<!--            &lt;!&ndash;                            <goal>repackage</goal>&ndash;&gt;-->
+<!--            &lt;!&ndash;                        </goals>&ndash;&gt;-->
+<!--            &lt;!&ndash;                        &lt;!&ndash;可以生成不含依赖包的不可执行Jar包&ndash;&gt;&ndash;&gt;-->
+<!--            &lt;!&ndash;                        &lt;!&ndash; configuration>&ndash;&gt;-->
+<!--            &lt;!&ndash;                          <classifier>exec</classifier>&ndash;&gt;-->
+<!--            &lt;!&ndash;                        </configuration> &ndash;&gt;&ndash;&gt;-->
+<!--            &lt;!&ndash;                    </execution>&ndash;&gt;-->
+<!--            &lt;!&ndash;                </executions>&ndash;&gt;-->
+<!--            &lt;!&ndash;            </plugin>&ndash;&gt;-->
+<!--        </plugins>-->
+<!--    </build>-->
+</project>

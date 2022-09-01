@@ -1,0 +1,25 @@
+server:
+  port: 8989
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mock-database?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: zhongjie
+    password: 123456
+
+# MyBatis
+mybatis-plus:
+  # 搜索指定包别名
+  typeAliasesPackage: com.demo.dao.entity
+  #配置mapper的扫描，找到所有的mapper.xml映射文件
+  #classpath:只能加载找到的第一个资源文件    classpath*:能加载多个路径下的资源文件
+  mapper-locations: classpath*:/mapper/*.xml
+
+## MyBatis
+#mybatis:
+#  # 搜索指定包别名
+#  typeAliasesPackage: com.demo.dao.entity
+#  #配置mapper的扫描，找到所有的mapper.xml映射文件
+#  #classpath:只能加载找到的第一个资源文件    classpath*:能加载多个路径下的资源文件
+#  mapperLocations: classpath*:mapper/*.xml
